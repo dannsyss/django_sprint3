@@ -29,7 +29,7 @@ class PostListView(ListView):
         queryset = queryset.annotate(comment_count=Count('comments'))
         queryset = queryset.filter(category__is_published=True)
 
-        return queryset
+        return queryset[:5]
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
